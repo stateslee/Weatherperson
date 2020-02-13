@@ -34,9 +34,24 @@ observation2 = owm.weather_at_place("Charlotte,NC,USA")
 t2 = observation2.get_weather()
 temp2 = t2.get_temperature('fahrenheit')
 
-
-lbl = Label(window, text=("London", temp), font=("Arial Bold", 12))
+lbl = Label(window, text=("London temperature: "), font=("Arial Bold", 12))
 lbl.grid(column=0, row=0)
+
+lbl2 = Label(window, text=("Charlotte temperature:", temp2['temp']), font=("Arial Bold", 12))
+lbl2.grid(column=0, row=30)
+
+btn = Button(window, text="Click Me")
+
+
+
+#lbl.grid(column=0, row=0)
+def clicked():
+    lbl3.configure(text=(temp['temp']))
+ 
+lbl3 = Label(window)
+lbl3.grid(column = 70, row = 0)
+btn = Button(window, text="Click Me", command=clicked)
+btn.grid(column=100, row=100)
 
 window.mainloop()
 
